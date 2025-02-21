@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+    <head>
+        <link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}"
+            src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}"
+            src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+        <#if .locale == "zh_CN">
+        <link name="NotoSansCJKsc" type="font" subtype="opentype"
+            src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+        <#elseif .locale == "zh_TW">
+        <link name="NotoSansCJKtc" type="font" subtype="opentype"
+            src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+        <#elseif .locale == "ja_JP">
+        <link name="NotoSansCJKjp" type="font" subtype="opentype"
+            src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+        <#elseif .locale == "ko_KR">
+        <link name="NotoSansCJKkr" type="font" subtype="opentype"
+            src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+        <#elseif .locale == "th_TH">
+            <link name="NotoSansThai" type="font" subtype="opentype"
+                src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}"
+                bytes="2" />
+        </#if>
+        <macrolist>
+            <macro id="nlheader">
+                <table border="0" cellpadding="0" cellspacing="0" class="header" style="width: 100%">
+                    <tr>
+                        <td align="center"
+                            style="text-align: left; vertical-align: top; width: 30%;">
+                            <#if record.subsidiary.custrecord_subsidiary_logo_url?? && record.subsidiary.custrecord_subsidiary_logo_url?length != 0>
+                            <img src="${record.subsidiary.custrecord_subsidiary_logo_url}"
+                                style="width: 150px; height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
+                            <#else>
+                                <p>No Logo Found</p>custbody_oa_invoice_number </#if>
+                        </td>
+                        <td align="center" rowspan="2"
+                            style="width: 40%; vertical-align: bottom; text-align: right; line-height: 20px;">
+
+                        </td>
+                        <td align="center" rowspan="2"
+                            style="width: 30%; vertical-align: top; line-height: 20px; font-size: 12px;">
+                            <span class="nameandaddress">
+                                <b>${record.subsidiary.custrecord_cts_subsidiary_address}
+</b>
+                            </span>
+                            <br />
+
+                        </td>
+                    </tr>
+                </table>
+                <table cellpadding="0" cellspacing="0" class="header"
+                    style="width: 100%;margin-top: 30px;margin-bottom:10px;">
+                    <tr>
+                        <td align="center" style="margin-top: 30px;">
+                            <span class="title" style="font-size:20px;">
+                                <b></b>
+                            </span>
+                        </td>
+
+                    </tr>
+
+                </table>
+
+
+            </macro>
+            <macro id="nlfooter">
+
+
+            </macro>
+        </macrolist>
+        <style type="text/css">* { font-family: NotoSans; } *:lang(ar) { font-family:
+            NotoSansArabic; line-height: 25px; }
+</style>
+        <style type="text/css">* { <#if .locale == "zh_CN"> font-family: NotoSans, NotoSansCJKsc, sans-serif; <#elseif .locale == "zh_TW">
+            font-family: NotoSans, NotoSansCJKtc, sans-serif; <#elseif .locale == "ja_JP"> font-family: NotoSans,
+            NotoSansCJKjp, sans-serif; <#elseif .locale == "ko_KR"> font-family: NotoSans, NotoSansCJKkr, sans-serif; <#elseif .locale == "th_TH">
+            font-family: NotoSans, NotoSansThai, sans-serif; <#else>
+                font-family: NotoSans, sans-serif, NotoSansArabic;
+            </#if> }
+            table { font-size: 9pt; table-layout: fixed; } th { font-weight: bold; font-size: 8pt;
+            vertical-align: middle; padding: 5px 6px 3px; background-color: #e3e3e3; color: #333333;
+            } td { <!-- padding: 4px 6px; --> } td p { align:left } b { font-weight: bold; color: #333333; } table.header td {
+            padding: 0px; font-size: 10pt; } table.footer td { padding: 0px; font-size: 8pt; }
+            table.itemtable th { padding-bottom: 10px; padding-top: 10px; } table.body td {
+            padding-top: 2px; } table.total { page-break-inside: avoid; } tr.totalrow {
+            background-color: #e3e3e3; line-height: 200%; } td.totalboxtop { font-size: 12pt;
+            background-color: #e3e3e3; } td.addressheader { font-size: 8pt; padding-top: 6px;
+            padding-bottom: 2px; } td.address { padding-top: 0px; } td.totalboxmid { font-size:
+            28pt; padding-top: 20px; background-color: #e3e3e3; } td.totalboxbot { background-color:
+            #e3e3e3; font-weight: bold; } span.title { font-size: 28pt; } span.number { font-size:
+            16pt; } span.itemname { font-weight: bold; line-height: 150%; } hr { width: 100%; color:
+            #d3d3d3; background-color: #d3d3d3; height: 1px; }
+</style>
+    </head>
+    <#assign headerSize="28">
+    <body header="nlheader" header-height="10%" footer="nlfooter" footer-height="1%"
+        padding="0.3in 0.2in 0.2in 0.3in" size="A4">
+        <p font-size="18px" align="left">TAX INVOICE: CSI-613-2024</p>
+
+        <table border="1" cellpadding="1" style="margin-top:0px;width:100%; line-height:12pt;">
+            <tr>
+                <td style="width:17%;"></td>
+                <td style="width:33%;"></td>
+                <td style="width:17%;"></td>
+
+                <td style="width:5%;">
+                    <p>
+                        <span align="left" font-size="9px"><strong> Page :</strong> <pagenumber /> / <totalpages />
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:17%;">&nbsp;10001023</td>
+                <td style="width:33%;"></td>
+                <td style="width:17%;">
+                    <b>Date:</b>
+                </td>
+                <td style="width:33%;"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;Gulf Craft Inc Co LLC</td>
+                <td></td>
+                <td>
+                    <b>Invoice Number:</b>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;P.O. Box 666</td>
+                <td></td>
+                <td>
+                    <b>Service Order No.:</b>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;Ajman</td>
+                <td></td>
+                <td>
+                    <b>Fulfillment Date:</b>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;United Arab Emirates</td>
+                <td></td>
+                <td>
+                    <b>Berth No.:</b>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>&nbsp;Tel No<br />
+      <b>Fax No.:</b></td>
+                <td></td>
+                <td>&nbsp;<b>Boat ID:</b></td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td>&nbsp;<b>Email:</b></td>
+                <td></td>
+                <td>&nbsp;<b>Running Hours:</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>&nbsp;<b>VAT TRN No.</b></td>
+                <td>100304109000003</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <!-- <tr>
+      <td height="40">&nbsp;</td>
+    <td></td>
+    <td></td>
+    <td></td>
+     </tr> -->
+        </table>
+        <#if record.item?has_content>
+
+            <table border="1" class="itemtable" style="margin-top:10px; width:100%;"><!-- start
+                items -->
+                <#list record.item as item>
+                    <#if item_index==0>
+                        <thead>
+                            <tr>
+                                <th align="center" colspan="3"
+                                    style="border-right: 1px black;border-bottom: 1px black;text-align:center;">
+                                    Sr.<br />No</th>
+                                <th align="center" colspan="4"
+                                    style="border-right: 1px black; border-bottom: 1px black;text-align:center;">Item
+                                    No</th>
+                                <th align="center" colspan="5"
+                                    style="border-right: 1px black;border-bottom: 1px black;text-align:center;">
+                                    ${item.description@label}</th>
+                                <th align="center" colspan="2"
+                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
+                                    Qty</th>
+                                <th align="center" colspan="4"
+                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
+                                    Rate</th>
+                                <th align="center" colspan="4"
+                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
+                                    Gross <br />Amount</th>
+                                <th align="center" colspan="3"
+                                    style="border-right: 1px black;border-bottom: 1px black;  text-align: center;">Item
+                                    Dis<br />(%)</th>
+                                <th align="center" colspan="3"
+                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
+                                    Item<br /> Discount</th>
+                                <th align="center" colspan="3"
+                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
+                                    Overall<br />Discount</th>
+
+                                <th align="center" colspan="4"
+                                    style="border-right: 1px black;border-bottom: 1px black;text-align: center; ">
+                                    Amount<br /> Exclude<br /> VAT</th>
+                                <th align="center" colspan="4"
+                                    style="border-right: 1px black;border-bottom: 1px black;text-align: center; ">
+                                    VAT</th>
+                                <th align="center" colspan="4" style="border-bottom: 1px black;">Net <br />
+                                    Amount<br /> with<br /> VAT</th>
+
+
+                            </tr>
+                        </thead>
+                    </#if>
+                    <tr>
+                        <td align="left" colspan="3"
+                            style="border-right: 1px black;border-bottom: 1px black;">
+                            ${item_index+1}</td>
+                        <td align="left" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">${item.item}</td>
+                        <td align="left" colspan="5"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.description}</td>
+                        <td align="center" colspan="2"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.quantity}</td>
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">${item.rate}</td>
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.amount}</td>
+                        <td align="right" colspan="3"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.taxrate1}</td>
+                        <td align="right" colspan="3"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.tax1amt}</td>
+                        <td align="right" colspan="3"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.overall}</td>
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.grossamt}</td>
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.grossamt}</td>
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            ${item.grossamt}</td>
+
+                    </tr>
+                </#list><!-- end
+                items -->
+                <tr>
+                    <td colspan="18"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">
+                        Total</td>
+                    <td colspan="4"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="3"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="3"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="3"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="4"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="4"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <td colspan="4"
+                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                </tr>
+                <tr>
+                    <td colspan="40">${record.custbody_bog_amount_in_words}</td>
+                </tr>
+                <tr>
+                    <td colspan="35" style="align:right;border-top: 1px;">
+                        <b>Gross Total Before VAT:</b>
+                    </td>
+                    <td colspan="8" style="align:right; border-top: 1px; ">${record.subtotal}</td>
+                </tr>
+                <tr>
+                    <td colspan="35" style="align:right;">
+                        <b>Item Discount:</b>
+                    </td>
+                    <td colspan="8" style="align:right;  ">{sum1}</td>
+                </tr>
+                <tr>
+                    <td colspan="35" style="align:right;">
+                        <b>Overall Discount:</b>
+                    </td>
+                    <td colspan="8" style="align:right;  ">{sum1}</td>
+                </tr>
+                <tr>
+                    <td colspan="35" style="align:right;">
+                        <b>VAT AED: </b>
+                    </td>
+                    <td colspan="8" style="align:right;  ">${record.taxtotal}</td>
+                </tr>
+                <tr>
+                    <td colspan="35" style="align:right;  border-top: 1px;">
+                        <b>Net Total AED: </b>
+                    </td>
+                    <td colspan="8" style="align:right; border-top: 1px; ">${record.total}</td>
+                </tr>
+            </table>
+        </#if>
+        <!-- <table class="itemtable" style="margin-top:0px; width:100%;">
+<tr><td>${record.custbody_bog_amount_in_words}</td></tr>
+<tr><td></td></tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td colspan = "6" ></td>
+<td colspan = "3"  align = "right">
+<b>Gross Total Before VAT:</b> </td>
+<td colspan = "3"  align = "right">${record.subtotal}</td>
+</tr>
+<tr>
+<td colspan = "5" ></td>
+<td colspan = "3"  align = "right">
+<b>Item Discount:</b> </td>
+<td colspan = "3"  align = "right">${record.subtotal}</td>
+</tr>
+<tr>
+<td colspan = "5" ></td>
+<td colspan = "3"  align = "right">
+<b>Overall Discount:</b> </td>
+<td colspan = "3"  align = "right">${record.subtotal}</td>
+</tr>
+<tr>
+<td colspan = "5" ></td>
+<td colspan = "3"  align = "right">
+<b>VAT AED: </b></td>
+<td colspan = "3"  align = "right">${record.subtotal}</td>
+</tr>
+
+<tr>
+<td colspan = "5" ></td>
+<td colspan = "3"  align = "right">
+<hr style = "width: 190px; align: right;"/>
+<b>Net Total AED: </b></td>
+
+<td colspan = "3"  align = "right">${record.subtotal}</td>
+</tr>
+</table> -->
+
+        <table border="1" style="width: 100%;">
+            <tr>
+                <td width="50%">
+                    <b>Terms &and; Conditions</b><br />
+<b>Payment Terms:</b>
+<br /><br /> 75 days
+                    from Invoice Date, End of month <br /><br /><br /><br /> Customer Approval </td>
+                <td width="50%">
+
+
+                    <table width="100%">
+                        <tr>
+                            <td align="left" style="border-bottom: 1px;border-left: 1px;">Bank
+                                Transfer Details</td>
+                            <td style="border-bottom: 1px;"></td>
+                        </tr>
+                        <tr>
+                            <td width="25%" align="left"
+                                style="border-bottom: 1px; border-left: 1px; vertical-align:middle;">
+                                <b>A/C ID:</b>
+                            </td>
+                            <td align="center" style="border-bottom: 1px; vertical-align:middle;">
+                                <b>Extreme Marine</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="25%" align="left"
+                                style="border-bottom: 1px; border-left: 1px; vertical-align:middle;">
+                                <b>Bank:</b>
+                            </td>
+                            <td align="center" style="border-bottom: 1px; vertical-align:middle;">
+                                <b>Commercial Bank Of Dubai</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="25%" align="left"
+                                style="border-bottom: 1px; border-left: 1px;vertical-align:middle;">
+                                <b>Bank A/C No.:</b>
+                            </td>
+                            <td align="center" style="border-bottom: 1px; vertical-align:middle;">
+                                <b>1000424893</b>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="25%" align="left"
+                                style="border-bottom: 1px;border-left: 1px; vertical-align:middle; ">
+                                <b>IBAN A/C No.:</b>
+                            </td>
+                            <td align="center" style="border-bottom: 1px; vertical-align:middle;">
+                                <b>AE070230000001000424893</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="25%" align="left"
+                                style="border-left: 1px; vertical-align:middle;">
+                                <b>SWIFT CODE:</b>
+                            </td>
+                            <td align="center" style="vertical-align:middle;">
+                                <b>CBDUAEAD</b>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+
+
+        </table>
+        <p style="margin-top: 25px">
+            <b>Terms and Conditions </b>
+  <br /><br /><br /><br />
+<b>Return Policy </b>- Only unopened
+            items can be returned within fourteen (14) days upon receipt of delivery along with
+            proof of purchase. </p>
+        <!-- <table border="0" style="width: 100%; margin-top: 10px;">
+<tr>
+    <td style="width: 60%;">
+    <table border="0" style="width: 100%;">
+      <tr>
+        <td><b>Total Lines: </b>{lines}</td>
+        <td
+        align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total
+        Qty: </b>{totalQty}</td>
+        </tr>
+      </table>
+    </td>
+    <td style="width: 40%;">
+    
+    </td>
+    </tr></table>
+    <table border="0" style="width: 100%;">
+        <tr>
+        <td></td>
+     </tr>
+        <tr>
+          <td><b>Total Amount in Words: </b><#if record.custbody_cts_aed_amt_words?contains("AED")> <#elseif
+        record.custbody_cts_aed_amt_words?contains("USD")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("SAR")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("QAR")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("INR")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("EUR")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("CHF")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("IQD")>
+            <#elseif record.custbody_cts_aed_amt_words?contains("KWD")>
+            <#else>{record.currency}</#if>&nbsp;{record.custbody_bog_amount_in_words}</td>
+        </tr>
+      	<tr>
+        <td><b>Payment Terms: </b>{record.terms}</td>
+        </tr>
+        <tr>
+        <td height="40"><b>Memo: </b>{record.memo}</td>
+        </tr>
+      	
+      </table>
+    
+	<table  width = "40%" style = "margin-top: 50px;">
+    <tr><td><p> {record.subsidiary.custrecord_cts_subsidiary_bank_acc}</p></td></tr>
+
+	</table> -->
+
+    </body>
+</pdf>

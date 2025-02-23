@@ -74,8 +74,8 @@
             NotoSansCJKjp, sans-serif; <#elseif .locale == "ko_KR"> font-family: NotoSans, NotoSansCJKkr, sans-serif; <#elseif .locale == "th_TH">
             font-family: NotoSans, NotoSansThai, sans-serif; <#else>
                 font-family: NotoSans, sans-serif, NotoSansArabic;
-            </#if> } table {
-            font-size: 9pt; table-layout: fixed; } th { font-weight: bold; font-size: 8pt;
+            </#if> }
+            table { font-size: 9pt; table-layout: fixed; } th { font-weight: bold; font-size: 8pt;
             vertical-align: middle; padding: 5px 6px 3px; background-color: #e3e3e3; color: #333333;
             } td { <!-- padding: 4px 6px; --> } td p { align:left } b { font-weight: bold; color: #333333; } table.header td {
             padding: 0px; font-size: 10pt; } table.footer td { padding: 0px; font-size: 8pt; }
@@ -87,7 +87,8 @@
             28pt; padding-top: 20px; background-color: #e3e3e3; } td.totalboxbot { background-color:
             #e3e3e3; font-weight: bold; } span.title { font-size: 28pt; } span.number { font-size:
             16pt; } span.itemname { font-weight: bold; line-height: 150%; } hr { width: 100%; color:
-            #d3d3d3; background-color: #d3d3d3; height: 1px; }         </style>
+            #d3d3d3; background-color: #d3d3d3; height: 1px; }
+</style>
     </head>
     <#assign headerSize="28">
     <body header="nlheader" header-height="13%" footer="nlfooter" footer-height="10%"
@@ -97,11 +98,7 @@
                 <td width="50%"></td>
                 <td width="50%" style="border-left: 1px black; background-color: #808080"></td>
             </tr>
-
-
         </table>
-        <p font-size="27px" align="left" style="color: #808080;">Receipt: RV-21998</p>
-        <hr />
 
         <table cellpadding="1" style="margin-top:10px;width:100%; line-height:12pt;">
             <tr>
@@ -112,37 +109,56 @@
             </tr>
 
             <tr>
-                <td style="width:17%;">&nbsp;</td>
-                <td style="width:33%;"></td>
-                <td style="width:17%;">
-                    <b></b>
-                </td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td style="width:33%;">No. : 29</td>
             </tr>
 
             <tr>
-                <td>&nbsp;<b>Payee Name:</b></td>
-                <td>Extreme Marine Equipment and Service<br /><br /> Jabel Ali, Industrial Area<br /><br />
-                    Dubai<br /><br /> AE</td>
-                <td>
-                    <b>Payer Name:</b>
-                </td>
-                <td>Luxury Yachts LLC<br /><br /> Office No. 116, Fishing Harbor<br /><br /> Umm
-                    Suqiem 2, Dubai,<br /><br /> AE</td>
+                <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b> RV-21998</td>
             </tr>
 
             <tr>
-                <td>&nbsp;<b>Description :
-</b></td>
-                <td>CSI-3610-2024</td>
                 <td>
-                    <b></b>
+                    <br />
+                    <b>Payee Name:</b>
+                </td>
+                <td></td>
+                <td>
+                    <br />
+                    <b>Payer Name:</b>
                 </td>
                 <td></td>
             </tr>
 
             <tr>
-                <td>&nbsp;<b></b></td>
+                <td colspan="1" style="white-space: nowrap; line-height:17px;">Extreme Marine
+                    Equipment and Service<br /> Jabel Ali, Industrial Area<br /> Dubai<br /> AE</td>
+                <td></td>
+
+                <td colspan="1" style="white-space: nowrap; line-height:17px;">Luxury Yachts LLC<br />
+                    Office No. 116, Fishing Harbor<br /> Umm Suqiem 2, Dubai,<br /> AE</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <br />
+                    <b>Description :</b>
+                </td>
+                <td>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>CSI-3610-2024</td>
+            </tr>
+
+            <tr style = "margin-top:20px">
+                <td>
+                    <b></b>
+                </td>
                 <td></td>
                 <td>
                     <b>Amount:</b>
@@ -151,7 +167,9 @@
             </tr>
 
             <tr>
-                <td>&nbsp;<b></b></td>
+                <td>
+                    <b></b>
+                </td>
                 <td></td>
                 <td>
                     <b></b>
@@ -160,19 +178,21 @@
             </tr>
 
             <tr>
-                <td>&nbsp;<b></b></td>
+                <td>
+                    <b></b>
+                </td>
                 <td></td>
-                <td>&nbsp;</td>
+                <td></td>
                 <td></td>
             </tr>
 
-            <tr>
+            <tr style= "margin-top:70px;">
                 <td>
                     <b>Date:</b>
                 </td>
                 <td>20/01/2025 </td>
-                <td>Signature:</td>
-                <td>-----------------------------------------------</td>
+                <td style = "white-space:nowrap">Signature:&nbsp; ______________________________</td>
+                <td></td>
             </tr>
 
 

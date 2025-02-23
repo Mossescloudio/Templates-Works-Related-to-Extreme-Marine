@@ -220,7 +220,7 @@
                 <td style="white-space:nowrap;">
                     <b>Supplier ID:</b>
                 </td>
-                <td>1000062</td>
+                <td>${record.otherrefnum}</td>
                 <td></td>
                 <td></td>
             </tr>

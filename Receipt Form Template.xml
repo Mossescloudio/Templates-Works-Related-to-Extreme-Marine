@@ -100,19 +100,13 @@
             </tr>
         </table>
 
-        <table cellpadding="1" style="margin-top:10px;width:100%; line-height:12pt;">
-            <tr>
-                <td style="width:17%;"></td>
-                <td style="width:33%;"></td>
-                <td style="width:17%;"></td>
-                <td style="width:33%;"></td>
-            </tr>
+        <table cellpadding="1" style="margin-top:10px;line-height:12pt;">
 
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td style="width:33%;">No. : 29</td>
+                <td colspan = "6">No. : 29</td>
             </tr>
 
             <tr>
@@ -127,7 +121,7 @@
                 <td></td>
                 <td>
                     <br />
-                    <b>Payer Name:</b>
+                    <b style="margin-right:50">Payer Name:</b>
                 </td>
                 <td></td>
             </tr>

@@ -188,7 +188,7 @@
                 <#list record.item as item>
                     <#if item_index==0>
                         <thead>
-                            <tr>
+                            <tr style="overflow-wrap: break-word;">
                                 <th align="center" colspan="3"
                                     style="border-right: 1px black;border-bottom: 1px black;text-align:center;">
                                     Sr.<br />No</th>
@@ -208,7 +208,7 @@
                                     style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
                                     Gross <br />Amount</th>
                                 <th align="center" colspan="3"
-                                    style="border-right: 1px black;border-bottom: 1px black;  text-align: center;">Item
+                                    style="border-right: 1px black;border-bottom: 1px black;  text-align: center; word-wrap: break-word;">Item
                                     Dis<br />(%)</th>
                                 <th align="center" colspan="3"
                                     style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
@@ -368,12 +368,10 @@
             <tr>
                 <td width="50%">
                     <b>Terms &and; Conditions</b><br />
-<b>Payment Terms:</b>
-<br /><br /> 75 days
+                    <b>Payment Terms:</b>
+                    <br /><br /> 75 days
                     from Invoice Date, End of month <br /><br /><br /><br /> Customer Approval </td>
                 <td width="50%">
-
-
                     <table width="100%">
                         <tr>
                             <td align="left" style="border-bottom: 1px;border-left: 1px;">Bank

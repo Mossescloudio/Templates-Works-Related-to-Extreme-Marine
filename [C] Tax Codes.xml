@@ -74,8 +74,8 @@
             NotoSansCJKjp, sans-serif; <#elseif .locale == "ko_KR"> font-family: NotoSans, NotoSansCJKkr, sans-serif; <#elseif .locale == "th_TH">
             font-family: NotoSans, NotoSansThai, sans-serif; <#else>
                 font-family: NotoSans, sans-serif, NotoSansArabic;
-            </#if> } table {
-            font-size: 9pt; table-layout: fixed; } th { font-weight: bold; font-size: 8pt;
+            </#if> }
+            table { font-size: 9pt; table-layout: fixed; } th { font-weight: bold; font-size: 8pt;
             vertical-align: middle; padding: 5px 6px 3px; background-color: #e3e3e3; color: #333333;
             } td { <!-- padding: 4px 6px; --> } td p { align:left } b { font-weight: bold; color: #333333; } table.header td {
             padding: 0px; font-size: 10pt; } table.footer td { padding: 0px; font-size: 8pt; }

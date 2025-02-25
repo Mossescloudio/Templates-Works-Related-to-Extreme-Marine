@@ -183,7 +183,7 @@
                 <td>
                     <b style="margin-right: 30px;">Date:</b>${record.trandate}</td>
                 <td></td>
-                <td style="white-space:nowrap; margin-left:100;">Signature:&nbsp;<hr /></td>
+                <td style="white-space:nowrap; margin-left:100; white-space: nowrap; ">Signature:&nbsp;<hr /></td>
                 <td></td>
             </tr>
         </table>

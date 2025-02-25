@@ -79,7 +79,13 @@
             #e3e3e3; font-weight: bold; } span.title { font-size: 28pt; } span.number { font-size:
             16pt; } span.itemname { font-weight: bold; line-height: 150%; } hr { width: 100%; color:
             #d3d3d3; background-color: #d3d3d3; height: 1px; }
-</style>
+            .summary-totals-title{
+                margin-left: 350px;
+            }  
+            table{
+                border-collapse:collapse;
+            } 
+         </style>
     </head>
     <#assign headerSize="20">
     <body header="nlheader" header-height="10%" footer="nlfooter" footer-height="10%"
@@ -141,8 +147,8 @@
             <tr>
 
                 <td>
-                <b>Fax No:</b></td>&nbsp;${record.entity.fax}
-                <td></td>
+                    <b>Fax No:</b>
+                </td>&nbsp;${record.entity.fax} <td></td>
                 <td>
                     <b>Boat ID:</b>
                 </td>
@@ -151,8 +157,7 @@
             <tr>
 
                 <td>
-                    <b>Email:</b>&nbsp;${record.entity.email}
-                </td>
+                    <b>Email:</b>&nbsp;${record.entity.email} </td>
                 <td></td>
                 <td>
                     <b>Running Hours:</b>
@@ -161,8 +166,7 @@
             </tr>
             <tr>
                 <td>
-                    <b>VAT TRN No:</b>&nbsp;${record.account}
-                </td>
+                    <b>VAT TRN No:</b>&nbsp;${record.account} </td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -177,7 +181,7 @@
         </table>
         <#if record.item?has_content>
 
-            <table border="1" class="itemtable" style="margin-top:10px; width:100%;"><!-- start
+            <table border="1" border-bottom ="0" class="itemtable" style="margin-top:10px; width:100%;"><!-- start
                 items -->
                 <#list record.item as item>
                     <#if item_index==0>
@@ -219,8 +223,8 @@
                         </thead>
                     </#if>
                     <tr>
-                        <td align="left" colspan="3"
-                            style="border-right: 1px black;border-bottom: 1px black;">
+                        <td align="center" colspan="3"
+                            style="border-right: 1px black;border-bottom: 1px black; text-align:center;">
                             ${item_index+1}</td>
                         <td align="left" colspan="4"
                             style="border-right: 1px black; border-bottom: 1px black;">${item.item}</td>
@@ -269,52 +273,65 @@
                 <tr>
                     <td colspan="18"
                         style="border-right: 1px black;border-bottom: 1px black; align: center">
-                        Total</td>
+                        <b>Total</b>
+                    </td>
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                     <!-- <td colspan = "3" style="border-right: 1px black;border-bottom: 1px black;
                     align: center">-</td> -->
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                     <td colspan="4"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                 </tr>
                 <tr>
-                    <td colspan="40">UAE Dirhams (DHS): {record.custbody_bog_amount_in_words}</td>
+                    <td colspan="40" style= "margin-bottom:10px;">UAE Dirhams (DHS): {record.custbody_bog_amount_in_words}</td>
                 </tr>
                 <tr>
-                    <td colspan="33" style="align   :right;">
+                    <td class = "summary-totals-title" colspan="33" style="align:left;margin-up:20px;">
                         <b>Gross Total Before VAT:</b>
                     </td>
-                    <td colspan="9" style="align:right; ">${record.subtotal?string.number}</td>
+                    <td  colspan="9" style="align:right; ">${record.subtotal?string.number}</td>
                 </tr>
                 <tr>
-                    <td colspan="33" style="align:right;">
+                    <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>Item Discount:</b>
                     </td>
                     <td colspan="9" style="align:right;  ">${record.discounttotal?string.number}</td>
                 </tr>
                 <tr>
-                    <td colspan="33" style="align:right;">
+                    <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>Overall Discount:</b>
                     </td>
                     <td colspan="9" style="align:right;">
                         ${record.custbody_cts_estimate_overalldiscount?string.number}</td>
                 </tr>
                 <tr>
-                    <td colspan="33" style="align:right;">
+                    <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>VAT AED: </b>
                     </td>
-                    <td colspan="9" style="align:right;  ">${record.taxtotal?string.number}</td>
+                    <td colspan="9" style="align:right;">${record.taxtotal?string.number}</td>
                 </tr>
                 <tr>
-                    <td colspan="33" style="align:right;  border-top: 1px;">
+                    <td class = "summary-totals-title" colspan="33" style="align:left;  border-top: 1px;">
                         <b>Net Total AED: </b>
                     </td>
                     <td colspan="9" style="align:right; border-top: 1px; ">
@@ -366,7 +383,7 @@
         <table border="1" style="width: 100%;">
             <tr>
                 <td width="50%">
-                    <b>Terms &and; Conditions</b><br />
+                    <b>Terms &amp; Conditions</b><br />
 <b>Payment Terms:</b>
 <br /><br /> 75 days
                     from Invoice Date, End of month <br /><br /><br /><br /> Customer Approval </td>
@@ -375,8 +392,8 @@
 
                     <table width="100%">
                         <tr>
-                            <td align="left" style="border-bottom: 1px;border-left: 1px;">Bank
-                                Transfer Details</td>
+                            <td align="left"
+                                style="border-bottom: 1px solid black;border-left: 1px solid black;margin-top:0px;">Bank Transfer Details</td>
                             <td style="border-bottom: 1px;"></td>
                         </tr>
                         <tr>

@@ -26,13 +26,11 @@
             <macro id="nlheader">
                 <table border="0" cellpadding="0" cellspacing="0" class="header" style="width: 100%">
                     <tr>
-                        <td align="center"
-                            style="text-align: left; vertical-align: top; width: 30%;">
-                            <#if record.subsidiary.custrecord_subsidiary_logo_url?? && record.subsidiary.custrecord_subsidiary_logo_url?length != 0>
-                            <img src="${record.subsidiary.custrecord_subsidiary_logo_url}"
-                                style="width: 150px; height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
-                            <#else>
-                                <p>No Logo Found</p>custbody_oa_invoice_number </#if>
+                        <td align="left" style="text-align: left; vertical-align: top; width: 30%;">
+                            <#if subsidiary.logo?length != 0>
+                                <img src="${subsidiary.logo@url}"
+                                    style="width: 150px; height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
+                            </#if>
                         </td>
                         <td align="center" rowspan="2"
                             style="width: 40%; vertical-align: bottom; text-align: right; line-height: 20px;">
@@ -41,8 +39,7 @@
                         <td align="center" rowspan="2"
                             style="width: 30%; vertical-align: top; line-height: 20px; font-size: 12px;">
                             <span class="nameandaddress">
-                                <b>${record.subsidiary.custrecord_cts_subsidiary_address}
-</b>
+                                <b>{subsidiary.custrecord_cts_subsidiary_address}</b>
                             </span>
                             <br />
 
@@ -94,33 +91,29 @@
 </style>
     </head>
     <#assign headerSize="28">
-    <body header="nlheader" header-height="10%" footer="nlfooter" footer-height="1%"
+    <body header="nlheader" header-height="20%" footer="nlfooter" footer-height="10%"
         padding="0.3in 0.2in 0.2in 0.3in" size="A4">
         <p font-size="18px" align="left">TAX INVOICE: CSI-613-2024</p>
 
-        <table border="1" cellpadding="1" style="margin-top:0px;width:100%; line-height:12pt;">
+        <table border="1" cellpadding="1" style="margin-top:10px;width:100%; line-height:12pt;">
             <tr>
-                <td style="width:17%;"></td>
-                <td style="width:33%;"></td>
-                <td style="width:17%;"></td>
+                <!-- <td style="width:17%;"></td>
+<td style="width:33%;"></td>
+<td style="width:17%;"></td>
 
-                <td style="width:5%;">
-                    <p>
-                        <span align="left" font-size="9px"><strong> Page :</strong> <pagenumber /> / <totalpages />
-                        </span>
-                    </p>
-                </td>
+<td style="width:33%;"><p><span  align = "right" font-size = "9px">Page<pagenumber/> /
+                <totalpages/></span></p></td> -->
             </tr>
             <tr>
-                <td style="width:17%;">&nbsp;10001023</td>
-                <td style="width:33%;"></td>
-                <td style="width:17%;">
+                <td>10001023</td>
+                <td></td>
+                <td>
                     <b>Date:</b>
                 </td>
-                <td style="width:33%;"></td>
+                <td></td>
             </tr>
             <tr>
-                <td>&nbsp;Gulf Craft Inc Co LLC</td>
+                <td>Gulf Craft Inc Co LLC</td>
                 <td></td>
                 <td>
                     <b>Invoice Number:</b>
@@ -128,7 +121,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td>&nbsp;P.O. Box 666</td>
+                <td>P.O. Box 666</td>
                 <td></td>
                 <td>
                     <b>Service Order No.:</b>
@@ -136,7 +129,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td>&nbsp;Ajman</td>
+                <td>Ajman</td>
                 <td></td>
                 <td>
                     <b>Fulfillment Date:</b>
@@ -144,7 +137,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td>&nbsp;United Arab Emirates</td>
+                <td>United Arab Emirates</td>
                 <td></td>
                 <td>
                     <b>Berth No.:</b>
@@ -154,28 +147,36 @@
 
             <tr>
 
-                <td>&nbsp;Tel No<br />
+                <td>Tel No<br />
       <b>Fax No.:</b></td>
                 <td></td>
-                <td>&nbsp;<b>Boat ID:</b></td>
+                <td>
+                    <b>Boat ID:</b>
+                </td>
                 <td></td>
             </tr>
             <tr>
 
-                <td>&nbsp;<b>Email:</b></td>
+                <td>
+                    <b>Email:</b>
+                </td>
                 <td></td>
-                <td>&nbsp;<b>Running Hours:</b></td>
+                <td>
+                    <b>Running Hours:</b>
+                </td>
                 <td></td>
             </tr>
             <tr>
-                <td>&nbsp;<b>VAT TRN No.</b></td>
+                <td>
+                    <b>VAT TRN No.</b>
+                </td>
                 <td>100304109000003</td>
                 <td></td>
                 <td></td>
             </tr>
 
             <!-- <tr>
-      <td height="40">&nbsp;</td>
+      <td height="40"></td>
     <td></td>
     <td></td>
     <td></td>
@@ -188,7 +189,7 @@
                 <#list record.item as item>
                     <#if item_index==0>
                         <thead>
-                            <tr style="overflow-wrap: break-word;">
+                            <tr>
                                 <th align="center" colspan="3"
                                     style="border-right: 1px black;border-bottom: 1px black;text-align:center;">
                                     Sr.<br />No</th>
@@ -208,15 +209,11 @@
                                     style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
                                     Gross <br />Amount</th>
                                 <th align="center" colspan="3"
-                                    style="border-right: 1px black;border-bottom: 1px black;  text-align: center; word-wrap: break-word;">Item
+                                    style="border-right: 1px black;border-bottom: 1px black;  text-align: center;">Item
                                     Dis<br />(%)</th>
                                 <th align="center" colspan="3"
                                     style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
                                     Item<br /> Discount</th>
-                                <th align="center" colspan="3"
-                                    style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
-                                    Overall<br />Discount</th>
-
                                 <th align="center" colspan="4"
                                     style="border-right: 1px black;border-bottom: 1px black;text-align: center; ">
                                     Amount<br /> Exclude<br /> VAT</th>
@@ -225,8 +222,6 @@
                                     VAT</th>
                                 <th align="center" colspan="4" style="border-bottom: 1px black;">Net <br />
                                     Amount<br /> with<br /> VAT</th>
-
-
                             </tr>
                         </thead>
                     </#if>
@@ -243,32 +238,41 @@
                             style="border-right: 1px black; border-bottom: 1px black;">
                             ${item.quantity}</td>
                         <td align="right" colspan="4"
-                            style="border-right: 1px black; border-bottom: 1px black;">${item.rate}</td>
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            <#if item.rate == 0.00>${"0.00"}
+                            <#else>${item.rate?string['#,###,####,###,###.00']}</#if>
+                        </td>
                         <td align="right" colspan="4"
                             style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.amount}</td>
+                            <#if item.amount == 0.00>${"0.00"}
+                            <#else>${item.amount?string['#,###,####,###,###.00']}</#if>
+                        </td>
                         <td align="right" colspan="3"
                             style="border-right: 1px black; border-bottom: 1px black;">
                             ${item.taxrate1}</td>
                         <td align="right" colspan="3"
                             style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.tax1amt}</td>
-                        <td align="right" colspan="3"
-                            style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.overall}</td>
+                            <#if item.tax1amt == 0.00>${"0.00"}
+                            <#else>${item.tax1amt?string['#,###,####,###,###.00']}</#if>
+                        </td>
                         <td align="right" colspan="4"
                             style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.grossamt}</td>
+                            <#if item.grossamt == 0.00>${"0.00"}
+                            <#else>${item.grossamt?string['#,###,####,###,###.00']}</#if>
+                        </td>
                         <td align="right" colspan="4"
                             style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.grossamt}</td>
+                            <#if item.grossamt == 0.00>${"0.00"}
+                            <#else>${item.grossamt?string['#,###,####,###,###.00']}</#if>
+                        </td>
                         <td align="right" colspan="4"
-                            style="border-right: 1px black; border-bottom: 1px black;">
-                            ${item.grossamt}</td>
-
+                            style="border-right: 1px black;border-bottom: 1px black; ">
+                            <#if item.grossamt == 0.00>${"0.00"}
+                            <#else>${item.grossamt?string['#,###,####,###,###.00']}</#if>
+                        </td>
                     </tr>
-                </#list><!-- end
-                items -->
+                </#list><!--
+                end items -->
                 <tr>
                     <td colspan="18"
                         style="border-right: 1px black;border-bottom: 1px black; align: center">
@@ -279,8 +283,8 @@
                         style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
                     <td colspan="3"
                         style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
-                    <td colspan="3"
-                        style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
+                    <!-- <td colspan = "3" style="border-right: 1px black;border-bottom: 1px black;
+                    align: center">-</td> -->
                     <td colspan="4"
                         style="border-right: 1px black;border-bottom: 1px black; align: center">-</td>
                     <td colspan="4"
@@ -292,31 +296,31 @@
                     <td colspan="40">${record.custbody_bog_amount_in_words}</td>
                 </tr>
                 <tr>
-                    <td colspan="35" style="align:right;border-top: 1px;">
+                    <td colspan="32" style="align:right;border-top: 1px;">
                         <b>Gross Total Before VAT:</b>
                     </td>
                     <td colspan="8" style="align:right; border-top: 1px; ">${record.subtotal}</td>
                 </tr>
                 <tr>
-                    <td colspan="35" style="align:right;">
+                    <td colspan="32" style="align:right;">
                         <b>Item Discount:</b>
                     </td>
                     <td colspan="8" style="align:right;  ">{sum1}</td>
                 </tr>
                 <tr>
-                    <td colspan="35" style="align:right;">
+                    <td colspan="32" style="align:right;">
                         <b>Overall Discount:</b>
                     </td>
                     <td colspan="8" style="align:right;  ">{sum1}</td>
                 </tr>
                 <tr>
-                    <td colspan="35" style="align:right;">
+                    <td colspan="32" style="align:right;">
                         <b>VAT AED: </b>
                     </td>
                     <td colspan="8" style="align:right;  ">${record.taxtotal}</td>
                 </tr>
                 <tr>
-                    <td colspan="35" style="align:right;  border-top: 1px;">
+                    <td colspan="32" style="align:right;  border-top: 1px;">
                         <b>Net Total AED: </b>
                     </td>
                     <td colspan="8" style="align:right; border-top: 1px; ">${record.total}</td>
@@ -330,7 +334,7 @@
 <td></td>
 </tr>
 <tr>
-<td colspan = "6" ></td>
+<td colspan = "5" ></td>
 <td colspan = "3"  align = "right">
 <b>Gross Total Before VAT:</b> </td>
 <td colspan = "3"  align = "right">${record.subtotal}</td>
@@ -368,10 +372,12 @@
             <tr>
                 <td width="50%">
                     <b>Terms &and; Conditions</b><br />
-                    <b>Payment Terms:</b>
-                    <br /><br /> 75 days
+<b>Payment Terms:</b>
+<br /><br /> 75 days
                     from Invoice Date, End of month <br /><br /><br /><br /> Customer Approval </td>
                 <td width="50%">
+
+
                     <table width="100%">
                         <tr>
                             <td align="left" style="border-bottom: 1px;border-left: 1px;">Bank
@@ -432,7 +438,7 @@
 
 
         </table>
-        <p style="margin-top: 25px">
+        <p style="margin-top: 25px; font-size:6px;">
             <b>Terms and Conditions </b>
   <br /><br /><br /><br />
 <b>Return Policy </b>- Only unopened
@@ -445,7 +451,7 @@
       <tr>
         <td><b>Total Lines: </b>{lines}</td>
         <td
-        align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Total
+        align="left"><b>Total
         Qty: </b>{totalQty}</td>
         </tr>
       </table>
@@ -468,7 +474,7 @@
             <#elseif record.custbody_cts_aed_amt_words?contains("CHF")>
             <#elseif record.custbody_cts_aed_amt_words?contains("IQD")>
             <#elseif record.custbody_cts_aed_amt_words?contains("KWD")>
-            <#else>{record.currency}</#if>&nbsp;{record.custbody_bog_amount_in_words}</td>
+            <#else>{record.currency}</#if>{record.custbody_bog_amount_in_words}</td>
         </tr>
       	<tr>
         <td><b>Payment Terms: </b>{record.terms}</td>

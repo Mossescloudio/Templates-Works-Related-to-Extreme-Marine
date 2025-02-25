@@ -39,7 +39,7 @@
                         <td align="center" rowspan="2"
                             style="width: 30%; vertical-align: top; line-height: 20px; font-size: 12px;">
                             <span class="nameandaddress">
-                                <b>{subsidiary.custrecord_cts_subsidiary_address}</b>
+                                <b>${subsidiary.mainaddress_text}</b>
                             </span>
                             <br />
 
@@ -109,7 +109,7 @@
             </tr>
 
             <tr>
-                <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b> RV-21998</td>
+                <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b>${record.tranid}</td>
             </tr>
 
             <tr>
@@ -120,19 +120,18 @@
                 <td></td>
                 <td>
                     <br />
-                    <b style="margin-left:100;">Payer Name:</b>
+                    <b style="margin-left:100; max-width:30px;">Payer Name:</b>
                 </td>
                 <td></td>
             </tr>
 
             <tr>
-                <td colspan="1" style="white-space: nowrap; line-height:17px;">Extreme Marine
-                    Equipment and Service<br /> Jabel Ali, Industrial Area<br /> Dubai<br /> AE</td>
+                <td colspan="1" style="white-space: nowrap; line-height:17px;">
+                    ${subsidiary.mainaddress_text}</td>
                 <td></td>
 
-                <td colspan="1" style="white-space: nowrap; line-height:17px; margin-left:100;">Luxury
-                    Yachts LLC<br /> Office No. 116, Fishing Harbor<br /> Umm Suqiem 2, Dubai,<br />
-                    AE</td>
+                <td colspan="1"
+                    style="white-space: nowrap; line-height:17px; margin-left:100;white-space:wrap;">${record.customer}</td>
             </tr>
 
             <tr>
@@ -146,7 +145,7 @@
             </tr>
 
             <tr>
-                <td>CSI-3610-2024</td>
+                <td>${record.tranid}</td>
             </tr>
 
             <tr style="margin-top:20px">
@@ -157,7 +156,7 @@
                 <td>
                     <b style="margin-left:100;">Amount:</b>
                 </td>
-                <td>3,053.00 AED</td>
+                <td>${record.payment?string.number} ${record.currency}</td>
             </tr>
 
             <tr>
@@ -182,14 +181,11 @@
 
             <tr style="margin-top:71px;">
                 <td>
-                    <b style="margin-right: 30px;">Date:</b>20/01/2025 </td>
+                    <b style="margin-right: 30px;">Date:</b>${record.trandate}</td>
                 <td></td>
-                <td style="white-space:nowrap; margin-left:100;">Signature:&nbsp;
-                    ______________________________</td>
+                <td style="white-space:nowrap; margin-left:100;">Signature:&nbsp;<hr /></td>
                 <td></td>
             </tr>
-
-
         </table>
 
 

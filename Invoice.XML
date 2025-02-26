@@ -136,10 +136,10 @@
                 <td>${record.duedate}</td>
             </tr>
             <tr>
-                <td><b>Tel:</b>&nbsp;${record.entity.phone}</td>
+                <td><b>Tel.:</b>&nbsp;${record.entity.phone}</td>
                 <td></td>
                 <td>
-                    <b>Berth No:</b>
+                    <b>Berth No.:</b>
                 </td>
                 <td>{record.berthno}</td>
             </tr>
@@ -147,7 +147,7 @@
             <tr>
 
                 <td>
-                    <b>Fax No:</b>
+                    <b>Fax No.:</b>
                 </td>&nbsp;${record.entity.fax} <td></td>
                 <td>
                     <b>Boat ID:</b>

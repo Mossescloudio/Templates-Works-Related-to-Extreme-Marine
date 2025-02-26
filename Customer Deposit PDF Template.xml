@@ -37,12 +37,12 @@
 
                         </td>
                         <td align="center" rowspan="2"
-                            style="width: 30%; vertical-align: top; line-height: 20px; font-size: 12px;">
-                            <span class="nameandaddress">
+                            style="width: 30%; vertical-align: top; line-height: 12px; font-size: 12px;">
+                            <span>
                                 <b>${subsidiary.mainaddress_text}</b>
                             </span>
-                            <br />
-
+                            <br /><span> {Email}</span>
+                            <br /><span>{Phone}</span>    
                         </td>
                     </tr>
                 </table>
@@ -102,15 +102,15 @@
         <table cellpadding="1" style="margin-top:10px;line-height:12pt;">
 
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="6">No. : 29</td>
-            </tr>
-
-            <tr>
                 <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b>${record.tranid}</td>
             </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="6">No. : {record.no}</td>
+            </tr>
+
 
             <tr>
                 <td>
@@ -187,7 +187,5 @@
                 <td></td>
             </tr>
         </table>
-
-
     </body>
 </pdf>

@@ -25,32 +25,22 @@
         </#if>
         <macrolist>
             <macro id="nlheader">
-                <table border="0" cellpadding="0" cellspacing="0" class="header" style="width: 100%">
+                <table border="0" colspan= "2" class="header" width="100%">
                     <tr>
-                        <td> </td>
-                        <td>
-
+                        <td align="right" valign="top"><b>${subsidiary.mainaddress_text}</b>
                         </td>
-                        <td>
-                            <b>{subsidiary.mainaddress_text}</b>
-
+                    </tr>
+                    <tr>
+                        <td align="left" valign="bottom">
+                        <b style="font-size:20px;">TAX INVOICE: ${record.tranid}</b> <hr />
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td align="right" style="text-align: right; font-size: 8pt;">
+                           <b> Page <pagenumber /> of <totalpages /> </b><br />
                         </td>
                     </tr>
                 </table>
-                <table cellpadding="0" cellspacing="0" class="header"
-                    style="width: 100%;margin-top: 30px;margin-bottom:10px;">
-                    <tr>
-                        <td align="center" style="margin-top: 30px;">
-                            <span class="title" style="font-size:20px;">
-                                <b></b>
-                            </span>
-                        </td>
-
-                    </tr>
-
-                </table>
-
-
             </macro>
             <macro id="nlfooter">
 
@@ -80,7 +70,7 @@
             16pt; } span.itemname { font-weight: bold; line-height: 150%; } hr { width: 100%; color:
             #d3d3d3; background-color: #d3d3d3; height: 1px; }
             .summary-totals-title{
-                margin-left: 350px;
+                margin-left:400px;
             }  
             table{
                 border-collapse:collapse;
@@ -90,7 +80,6 @@
     <#assign headerSize="20">
     <body header="nlheader" header-height="10%" footer="nlfooter" footer-height="10%"
         padding="0.3in 0.2in 0.2in 0.3in" size="A4">
-        <p font-size="18px" align="left">TAX INVOICE: CSI-613-2024</p>
 
         <table border="1" cellpadding="1" style="margin-top:10px;width:100%; line-height:12pt;">
             <tr>
@@ -145,10 +134,10 @@
             </tr>
 
             <tr>
-
                 <td>
-                    <b>Fax No.:</b>
-                </td>&nbsp;${record.entity.fax} <td></td>
+                    <b>Fax No.:</b>&nbsp;${record.entity.fax}
+                </td>
+               <td> </td>
                 <td>
                     <b>Boat ID:</b>
                 </td>
@@ -382,75 +371,69 @@
 
         <table border="1" style="width: 100%;">
             <tr>
-                <td width="50%">
-                    <b>Terms &amp; Conditions</b><br />
-<b>Payment Terms:</b>
-<br /><br /> 75 days
+                <td>
+                    <b>Terms &amp; Conditions</b><br /> <b>Payment Terms:</b> <br /><br /> 75 days
                     from Invoice Date, End of month <br /><br /><br /><br /> Customer Approval </td>
-                <td width="50%">
-
-
+                <td>
                     <table width="100%">
                         <tr>
-                            <td align="left"
+                            <td align="center" colspan = "2"
                                 style="border-bottom: 1px solid black;border-left: 1px solid black;margin-top:0px;">Bank Transfer Details</td>
-                            <td style="border-bottom: 1px;"></td>
                         </tr>
                         <tr>
-                            <td width="25%" align="left"
+                            <td align="left"
                                 style="border-bottom: 1px; border-left: 1px; vertical-align:middle;">
                                 <b>A/C ID:</b>
                             </td>
                             <td align="center" style="border-bottom: 1px; vertical-align:middle;">
-                                <b>Extreme Marine</b>
+                                <b>${record.account}</b>
                             </td>
                         </tr>
                         <tr>
-                            <td width="25%" align="left"
+                            <td align="left"
                                 style="border-bottom: 1px; border-left: 1px; vertical-align:middle;">
                                 <b>Bank:</b>
                             </td>
                             <td align="center" style="border-bottom: 1px; vertical-align:middle;">
-                                <b>Commercial Bank Of Dubai</b>
+                                <b>{Commercial Bank Of Dubai}</b>
                             </td>
                         </tr>
 
                         <tr>
-                            <td width="25%" align="left"
+                            <td align="left"
                                 style="border-bottom: 1px; border-left: 1px;vertical-align:middle;">
                                 <b>Bank A/C No.:</b>
                             </td>
                             <td align="center" style="border-bottom: 1px; vertical-align:middle;">
-                                <b>1000424893</b>
+                                <b>{bank acc no.}</b>
                             </td>
                         </tr>
 
                         <tr>
-                            <td width="25%" align="left"
+                            <td align="left"
                                 style="border-bottom: 1px;border-left: 1px; vertical-align:middle; ">
                                 <b>IBAN A/C No.:</b>
                             </td>
                             <td align="center" style="border-bottom: 1px; vertical-align:middle;">
-                                <b>AE070230000001000424893</b>
+                                <b>{AE070230000001000424893}</b>
                             </td>
                         </tr>
                         <tr>
-                            <td width="25%" align="left"
+                            <td align="left"
                                 style="border-left: 1px; vertical-align:middle;">
                                 <b>SWIFT CODE:</b>
                             </td>
                             <td align="center" style="vertical-align:middle;">
-                                <b>CBDUAEAD</b>
+                                <b>{CBDUAEAD}</b>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-        <p style="margin-top: 25px; font-size: 13px">
-           <u> <b>Terms and Conditions </b> </u>
-  <br /><br /><br /><br />
-<b>Return Policy </b>- Only unopened
+        <p style="margin-top: 30px;font-size: 13px">
+           <u> <b>Terms and Conditions </b> </u><br /><br />
+            <b>Return Policy </b>- Only unopened
             items can be returned within fourteen (14) days upon receipt of delivery along with
             proof of purchase. </p>
         <!-- <table border="0" style="width: 100%; margin-top: 10px;">

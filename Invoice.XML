@@ -27,16 +27,24 @@
             <macro id="nlheader">
                 <table border="0" colspan= "2" class="header" width="100%">
                     <tr>
-                        <td align="right" valign="top"><b>${subsidiary.mainaddress_text}</b>
+                        <td align="left" colspan = "9" style="text-align: left; vertical-align: top;">
+                            <#if subsidiary.logo?length != 0>
+                            <img src="${subsidiary.logo@url}" style="height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
+                            <#else>
+                            [No logo Available, Check the Subsidiary for Logo]
+                            </#if>
                         </td>
+                        <td colspan= "9" align="right" valign="top">${subsidiary.mainaddress_text} <br />Telephone: {telephone}, Fax: {fax} <br />Email: {email}<br />Fax: {fax}
+                        <br />Email ID: {email}<br />Web: {website}<br /><b>TRN No.</b>: {record.tranid}
+                        </td>                
                     </tr>
                     <tr>
-                        <td align="left" valign="bottom">
-                        <b style="font-size:20px;">TAX INVOICE: ${record.tranid}</b> <hr />
+                        <td colspan = "18" align="left" valign="bottom">
+                        <b style="font-size:20px;">TAX INVOICE: ${record.tranid}</b> <hr style= "margin-top:3px; margin-bottom:5px; color:#000000;" />
                         </td> 
                     </tr>
                     <tr>
-                        <td align="right" style="text-align: right; font-size: 8pt;">
+                        <td align="right" colspan= "18" style="text-align: right; font-size: 8pt;">
                            <b> Page <pagenumber /> of <totalpages /> </b><br />
                         </td>
                     </tr>
@@ -78,7 +86,7 @@
          </style>
     </head>
     <#assign headerSize="20">
-    <body header="nlheader" header-height="10%" footer="nlfooter" footer-height="10%"
+    <body header="nlheader" header-height="16%" footer="nlfooter" footer-height="10%"
         padding="0.3in 0.2in 0.2in 0.3in" size="A4">
 
         <table border="1" cellpadding="1" style="margin-top:10px;width:100%; line-height:12pt;">
@@ -170,7 +178,7 @@
         </table>
         <#if record.item?has_content>
 
-            <table border="1" border-bottom ="0" class="itemtable" style="margin-top:10px; width:100%;"><!-- start
+            <table border="1" class="itemtable" style="margin-top:10px; width:100%;"><!-- start
                 items -->
                 <#list record.item as item>
                     <#if item_index==0>
@@ -200,6 +208,9 @@
                                 <th align="center" colspan="4"
                                     style="border-right: 1px black;border-bottom: 1px black; text-align: center;">
                                     Item<br /> Discount</th>
+                                <th align = "center" colspan="4" 
+                                    style="border-right: 1px black; border-bottom: 1px black;text-align:center;">
+                                    Overall <br /> Discount</th>                                
                                 <th align="center" colspan="4"
                                     style="border-right: 1px black;border-bottom: 1px black;text-align: center; ">
                                     Amount<br /> Exclude<br /> VAT</th>
@@ -240,6 +251,16 @@
                             style="border-right: 1px black; border-bottom: 1px black;">
                             <#if item.tax1amt == 0.00>${"0.00"}
                             <#else>${item.tax1amt?string['#,###,####,###,###.00']}</#if>
+                        </td>
+
+                        <td align="right" colspan="4"
+                            style="border-right: 1px black; border-bottom: 1px black;">
+                            <#if item.custbody_cts_estimate_overalldiscount?has_content>
+                                <#if item.custbody_cts_estimate_overalldiscount?number == 0.00>${"0.00"}
+                                <#else>${item.custbody_cts_estimate_overalldiscount?string['#,###,####,###,###.00']}%</#if>
+                            <#else>
+                                ${"0.00"}
+                            </#if>
                         </td>
                         <td align="right" colspan="4"
                             style="border-right: 1px black; border-bottom: 1px black;">
@@ -290,6 +311,10 @@
                         style="border-right: 1px black;border-bottom: 1px black; align: right">
                         <b>-</b>
                     </td>
+                    <td colspan="4"
+                        style="border-right: 1px black;border-bottom: 1px black; align: right">
+                        <b>-</b>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="40" style= "margin-bottom:10px;">UAE Dirhams (DHS): {record.custbody_bog_amount_in_words}</td>
@@ -298,32 +323,32 @@
                     <td class = "summary-totals-title" colspan="33" style="align:left;margin-up:20px;">
                         <b>Gross Total Before VAT:</b>
                     </td>
-                    <td  colspan="9" style="align:right; ">${record.subtotal?string.number}</td>
+                    <td  colspan="13" style="align:right; ">${record.subtotal?string.number}</td>
                 </tr>
                 <tr>
                     <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>Item Discount:</b>
                     </td>
-                    <td colspan="9" style="align:right;  ">${record.discounttotal?string.number}</td>
+                    <td colspan="13" style="align:right;  ">${record.discounttotal?string.number}</td>
                 </tr>
                 <tr>
                     <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>Overall Discount:</b>
                     </td>
-                    <td colspan="9" style="align:right;">
+                    <td colspan="13" style="align:right;">
                         ${record.custbody_cts_estimate_overalldiscount?string.number}</td>
                 </tr>
                 <tr>
                     <td class = "summary-totals-title" colspan="33" style="align:left;">
                         <b>VAT AED: </b>
                     </td>
-                    <td colspan="9" style="align:right;">${record.taxtotal?string.number}</td>
+                    <td colspan="13" style="align:right;">${record.taxtotal?string.number}</td>
                 </tr>
                 <tr>
                     <td class = "summary-totals-title" colspan="33" style="align:left;  border-top: 1px;">
                         <b>Net Total AED: </b>
                     </td>
-                    <td colspan="9" style="align:right; border-top: 1px; ">
+                    <td colspan="13" style="align:right; border-top: 1px; ">
                         ${record.total?string.number}</td>
                 </tr>
             </table>

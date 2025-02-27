@@ -95,14 +95,14 @@
         <table border="1" style="width:100%">
             <tr width="100%">
                 <td width="50%"></td>
-                <td width="50%" style="border-left: 1px black; background-color: #808080"></td>
+                <td width="50%" style="border-left: 1px black; background-color: #606060"></td>
             </tr>
         </table>
 
         <table cellpadding="1" style="margin-top:10px;line-height:12pt;">
 
             <tr>
-                <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b>${record.tranid}</td>
+                <td style="font-size:18px; white-space: nowrap"><b>Receipt:</b>  &nbsp;${record.tranid}</td>
             </tr>
             <tr>
                 <td></td>

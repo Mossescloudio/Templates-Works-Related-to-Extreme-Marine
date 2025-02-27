@@ -16,29 +16,25 @@
                         </#if>
                         <macrolist>
                             <macro id="nlheader">
-                                <table border="0" cellpadding="0" cellspacing="0" class="header" style="width: 100%">
+                                <table border="0" cellpadding="0" cellspacing="0" class="header" width="100%">
                                     <tr>
-                                        <td align="left" style="text-align: left; vertical-align: top; width: 30%;">
+                                        <td align="left" colspan="10" style="text-align: left; vertical-align: top;">
                                             <#if subsidiary.logo?length != 0>
-<img src="${subsidiary.logo@url}" style="width: 150px; height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
+                                            <img src="${subsidiary.logo@url}" style="height: 32px; float: left; margin-right: 1px; margin-left: 1px;" />
                                             <#else>
                                             [No logo Available, Check the Subsidiary for Logo]
                                             </#if>
                                         </td>
-                                        <td align="center" rowspan="2" style="width: 40%; vertical-align: bottom; text-align: right; line-height: 20px;">
+                                        <td align="center" colspan = '10' style="vertical-align: bottom; text-align: right">
                                         </td>
-                                        <td align="center" rowspan="2" style="vertical-align: top; line-height: 20px; font-size: 12px;">
-                                            <span class="nameandaddress">
-                                                <#if subsidiary.mainaddress_text?length != 0>
-<b>${subsidiary.mainaddress_text}</b>
-<#else>
-                                            [No address Available, Check with the Subsidiary for Address]
-                                            </#if>
-</span>
-</td>
-</tr>
-</table>
-<table cellpadding="0" cellspacing="0" class="header" style="width: 100%;margin-top: 30px;margin-bottom:5px;">
+                                        <td align="center" colspan= "8" style="vertical-align: top; font-size: 11px;">
+                                            <span class="nameandaddress"> ${subsidiary.mainaddress_text} <br /> {tel_number} <br />
+                                            {fax} <br /> {mail_id} <br /> {web}
+                                            </span>
+                                            </td>
+                                            </tr>
+                                            </table>
+                                        <table cellpadding="0" cellspacing="0" class="header" style="width: 100%;margin-top: 30px;margin-bottom:5px;">
                                                     <tr>
                                                         <td align="center" style="margin-top: 30px;">
                                                             <span class="title" style="font-size:20px;">
@@ -48,8 +44,8 @@
                                                     </tr>
                                                 </table>
 
-                                                <p font-size="25px" align="left" style="color: #808080;">Purchase Order:${record.tranid}</p>
-                                                <hr />
+                                                <p font-size="23px" align="left" style="color: #808080; margin-top:0px; margin-bottom:5px;">Purchase Order:${record.tranid}</p>
+                                                <hr style="margin: 0px;" />
                                                 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-top: 5px;">
                                                     <tr>
                                                         <td align="right" style="text-align: right; font-size: 8pt; color: #808080;">
@@ -100,10 +96,9 @@
                                         </style>
                                     </head>
                                     <#assign headerSize="28">
-                                        <body header="nlheader" header-height="20%" footer="nlfooter" footer-height="10%" padding="0.3in 0.4in 0.2in 0.4in" size="A4">
+                                        <body header="nlheader" header-height="17%" footer="nlfooter" footer-height="10%" padding="0.3in 0.4in 0.2in 0.4in" size="A4">
 
-                                            <table cellpadding="1" style="margin-top:10px; line-height:12pt;">
-
+                                            <table cellpadding="1" style="line-height:15px">
                                                 <tr>
                                                     <td>Exalto Emirates LLC</td>
                                                     <td colspan = "3"></td>
@@ -224,7 +219,7 @@
                                                     <td></td>
                                                 </tr>
                                             </table>
-                                            <p style="font-size: 8pt; line-height: 12;"> Dear Sir or Madam, <br />
+                                            <p style="font-size: 9pt; line-height: 12;"> Dear Sir or Madam, <br />
                                             <br />
 Please supply
             the following materials or services to the specified address in accordance with the

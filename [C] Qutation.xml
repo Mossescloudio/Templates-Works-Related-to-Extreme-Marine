@@ -135,7 +135,7 @@
 <td style="border: 1px solid gray; text-align: right;">${item.quantity}</td>
 <td style="border: 1px solid gray; text-align: center;">${item.amount}</td>
 <td style="border: 1px solid gray; text-align: center;">${item.rate}</td>
-<td style="border: 1px solid gray; text-align: center;">${item.total}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.grossamt}</td>
 </tr>
 </#list>
 </table>
@@ -177,7 +177,7 @@
 <td>VAT applicable (as per UAE law): ${record.taxamount}</td>
 </tr>
 <tr>
-<td style="background-color: #f2f2f2;">Final Total Amount AED: ${record.custbody_final_total_amount}</td>
+<td style="background-color: #f2f2f2;">Final Total Amount AED: ${record.custbody_cts_final_total_amount}</td>
 </tr>
 </table>
 </td>

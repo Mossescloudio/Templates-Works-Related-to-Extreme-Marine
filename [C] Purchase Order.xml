@@ -102,120 +102,238 @@
 <p>TRN: 100001054400003</p>
 </td>
 </tr></table>
-<table style="width: 100%;"><tr>
-<td style="width: 100%; font-size: 35px;" align="center"><span style="font-family: arial, helvetica, sans-serif; font-size: 24pt;"><strong>Purchase Order</strong></span></td>
-</tr></table>
-<table class="itemtable" style="width: 100%; margin-top: 2px; border: 0.5px solid black;"><tr>
-<td style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 17px; text-align: left; vertical-align: bottom;"><span class="transactionheader">Supplier:</span></td>
-<td style="width: 20%;font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.entityid}</span></td>
-<td style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">PO No:</span></td>
-<td style="width: 20%; font-family: arial, helvetica, sans-serif;text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.tranid}</span></td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Ref. No: </span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.entity}</span></td>
-<td style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">PO Date:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">${record.trandate}</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Payment Terms: </span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-<td style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">Currency:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Incoterm:&nbsp;</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Location:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Mode Of Shipment:&nbsp;</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">${record.custbody_contactphonenumber}</td>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Dispatch Date:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Supplier TRN No:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Dispatch Date:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Address:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Bill to Address:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Supplier Tel No:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Supplier Email ID:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
-</tr></table>
+<table style="width: 100%;">
+			<tr>
+				<td style="width: 100%; font-size: 35px;" align="center">
+					<span style="font-family: arial, helvetica, sans-serif; font-size: 24pt;">
+						<strong>Purchase Order</strong>
+					</span>
+				</td>
+			</tr>
+		</table>
+<table
+			class="itemtable" style="width: 100%; margin-top: 2px; border: 0.5px solid black;">
+			<tr>
+				<td
+					style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 17px; text-align: left; vertical-align: bottom;">
+					<span class="transactionheader">Supplier:</span>
+				</td>
+				<td
+					style="width: 20%;font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: bottom;"
+					colspan="3">
+					<span class="transactionheader">${record.entity}</span>
+				</td>
+				<td
+					style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 20px; text-align: left; vertical-align: bottom;">
+					<span class="transactionheader">PO No:</span>
+				</td>
+				<td
+					style="width: 20%; font-family: arial, helvetica, sans-serif;text-align: left; vertical-align: bottom;"
+					colspan="3">
+					<span class="transactionheader">${record.tranid}</span>
+				</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Ref. No: </span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.custbody_reference_no}</span>
+				</td>
+				<td
+					style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;">
+					<span class="transactionheader">PO Date:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+	${record.trandate}</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Payment Terms: </span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.terms}</span>
+				</td>
+				<td
+					style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;">
+					<span class="transactionheader">Currency:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.currency}</span>
+				</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Incoterm:&nbsp;</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.incoterm}</span>
+				</td>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;">
+					<span class="transactionheader">Location:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.location}</span>
+				</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Mode Of Shipment:&nbsp;</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+	${record.custbody_mode_of_shipment}</td>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;">
+					<span class="transactionheader">Dispatch Date:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.custbody_dispatch_date}</span>
+				</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Supplier TRN No:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.taxid}</span>
+				</td>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;">
+					<span class="transactionheader">Dispatch Date:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Address:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.custbody_supplier_address}</span>
+				</td>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;">
+					<span class="transactionheader">Bill to Address:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${subsidiary.mainadresstext}</span>
+				</td>
+			</tr>
+			<tr>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;">
+					<span class="transactionheader">Supplier Tel No:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.phone}</span>
+				</td>
+				<td
+					style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;">
+					<span class="transactionheader">Supplier Email ID:</span>
+				</td>
+				<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">
+					<span class="transactionheader">${record.email}</span>
+				</td>
+			</tr>
+		</table>
 <table style="border-collapse: collapse; width: 100%; padding-top: 25px;">
-<thead style="background-color: #f2f2f2;">
-<tr style="height: 30px;">
-<th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;" align="center">SNO</th>
-<th style="border: 1px solid gray; width: 25%; padding: 8px; text-align: center;" align="center">Item Code</th>
-<th style="border: 1px solid gray; width: 20%; padding: 8px; text-align: center;" align="center">QTY</th>
-<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">UOM</th>
-<th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;" align="center">Rate<br />(5%)</th>
-<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">Gross<br />Amount</th>
-<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">VAT%</th>
-<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">VAT</th>
-<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">Total Price</th>
-</tr>
-</thead>
-<#list record.item as item><tr style="height: 30px;">
-<td style="border: 1px solid gray; text-align: center;">${item_index + 1}</td>
-<td style="border: 1px solid gray; text-align: left;">${item.Description}</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: right;">${item.Amount}</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-</tr>
-</#list></table>
-<table style="width: 100%;"><tr style="width: 50%;">
-<td style="width: 60.1782%;">
-<table><tr>
-<td style="text-align: right;" colspan="5">Total amount in AED:</td>
-<td style="text-align: right;">${record.total}</td>
-</tr>
-<tr>
-<td style="text-align: right;" colspan="5">Shipping Instructions:</td>
-<td style="text-align: right;">${record}</td>
-</tr>
-<tr>
-<td style="padding-top: 8px; text-align: right;" colspan="5">Spl Inst/ Terms:</td>
-<td style="padding-top: 8px; text-align: right;">${record.total}</td>
-</tr></table>
-</td>
-<td style="width: 39.8029%;">
-<table style="width: 91.2032%;"><tr>
-<td style="width: 100%;">Total Amount: ${record.total}</td>
-</tr>
-<tr>
-<td style="width: 100%;">Discount: ${record.discount}</td>
-</tr>
-<tr>
-<td style="width: 100%;">VAT applicable(as per UAE law): ${record.vat}</td>
-</tr>
-<tr>
-<td style="background-color: rgb(242, 242, 242); width: 100%;">Final Total Amount AED:</td>
-</tr></table>
-</td>
-</tr></table>
-<table style="width: 100%; margin-top: 20px; margin-bottom: 20px; position: relative;"><tr>
-<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Prepared By</td>
-<td style="width: 5%;">&nbsp;</td>
-<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Checked and Costing Approved By</td>
-<td style="width: 5%;">&nbsp;</td>
-<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Approved By</td>
-</tr></table>
+    <thead style="background-color: #f2f2f2;">
+        <tr style="height: 30px;">
+            <th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;"
+                align="center">SNO</th>
+            <th
+                style="border: 1px solid gray; width: 25%; padding: 8px; text-align: center;"
+                align="center">Item Code</th>
+            <th
+                style="border: 1px solid gray; width: 20%; padding: 8px; text-align: center;"
+                align="center">QTY</th>
+            <th
+                style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;"
+                align="center">UOM</th>
+            <th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;"
+                align="center">Rate<br />(5%)</th>
+            <th
+                style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;"
+                align="center">Gross<br />Amount</th>
+            <th
+                style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;"
+                align="center">VAT%</th>
+            <th
+                style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;"
+                align="center">VAT</th>
+            <th
+                style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;"
+                align="center">Total Price</th>
+        </tr>
+    </thead>
+    <#list record.item as item>
+        <tr style="height: 30px;">
+            <td style="border: 1px solid gray; text-align: center;">${item_index + 1}</td>
+            <td style="border: 1px solid gray; text-align: left;">${item.itemid}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.quantity}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.custcol_uom}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.rate}</td>
+            <td style="border: 1px solid gray; text-align: right;">${item.amount}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.taxrate1}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.tax1amt}</td>
+            <td style="border: 1px solid gray; text-align: center;">${item.total}</td>
+        </tr>
+    </#list>
+</table>
+<table style="width: 100%;">
+    <tr style="width: 50%;">
+        <td style="width: 60.1782%;">
+            <table>
+                <tr>
+                    <td style="text-align: right;" colspan="5">Total amount in AED:</td>
+                    <td style="text-align: right;">${record.total}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" colspan="5">Shipping Instructions:</td>
+                    <td style="text-align: right;">${record.custbody_shipping_instructions}</td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 8px; text-align: right;" colspan="5">Spl Inst/ Terms:</td>
+                    <td style="padding-top: 8px; text-align: right;">${record.custbody_special_instructions}</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 39.8029%;">
+            <table style="width: 91.2032%;">
+                <tr>
+                    <td style="width: 100%;">Total Amount: ${record.total}</td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">Discount: ${record.discounttotal}</td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;">VAT applicable(as per UAE law): ${record.taxamount}</td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(242, 242, 242); width: 100%;">Final Total Amount AED: ${record.custbody_final_total_amount}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table style="width: 100%; margin-top: 20px; margin-bottom: 20px; position: relative;">
+    <tr>
+        <td style="border-top: 1px solid black; width: 30%; margin-top: 60px;"
+            align="center">Prepared By</td>
+        <td style="width: 5%;">&nbsp;</td>
+        <td style="border-top: 1px solid black; width: 30%; margin-top: 60px;"
+            align="center">Checked and Costing Approved By</td>
+        <td style="width: 5%;">&nbsp;</td>
+        <td style="border-top: 1px solid black; width: 30%; margin-top: 60px;"
+            align="center">Approved By</td>
+    </tr>
+</table>
 <table style="width: 100%;"><tr>
 <td style="margin-top: 25px;"><strong>Warranty:</strong>
 <p>1) Forwarder Name &amp; Address: TO BE ADVISED -PROVIDE THE PACKING WEIGHT &amp; DIMENSIONS.</p>

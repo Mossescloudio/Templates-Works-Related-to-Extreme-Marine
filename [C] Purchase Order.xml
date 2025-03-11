@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+	<link name="NotoSans" type="font" subtype="truetype" src="${nsfont.NotoSans_Regular}" src-bold="${nsfont.NotoSans_Bold}" src-italic="${nsfont.NotoSans_Italic}" src-bolditalic="${nsfont.NotoSans_BoldItalic}" bytes="2" />
+	<#if .locale == "zh_CN">
+		<link name="NotoSansCJKsc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKsc_Regular}" src-bold="${nsfont.NotoSansCJKsc_Bold}" bytes="2" />
+	<#elseif .locale == "zh_TW">
+		<link name="NotoSansCJKtc" type="font" subtype="opentype" src="${nsfont.NotoSansCJKtc_Regular}" src-bold="${nsfont.NotoSansCJKtc_Bold}" bytes="2" />
+	<#elseif .locale == "ja_JP">
+		<link name="NotoSansCJKjp" type="font" subtype="opentype" src="${nsfont.NotoSansCJKjp_Regular}" src-bold="${nsfont.NotoSansCJKjp_Bold}" bytes="2" />
+	<#elseif .locale == "ko_KR">
+		<link name="NotoSansCJKkr" type="font" subtype="opentype" src="${nsfont.NotoSansCJKkr_Regular}" src-bold="${nsfont.NotoSansCJKkr_Bold}" bytes="2" />
+	<#elseif .locale == "th_TH">
+		<link name="NotoSansThai" type="font" subtype="opentype" src="${nsfont.NotoSansThai_Regular}" src-bold="${nsfont.NotoSansThai_Bold}" bytes="2" />
+	</#if>
+    <macrolist>
+        <macro id="nlheader">
+            
+<table class="header" style="width: 100%;"><tr style="height: 4px;">
+<td style="width: 100%; height: 70px;" align="right">
+<p><#if companyInformation.logoUrl?length != 1> <@filecabinet nstype="image" style="float: right; margin: 4px; height: 35px; width: 120px;" src="${companyInformation.logoUrl}" /> </#if> &nbsp;</p>
+</td>
+</tr></table>
+&nbsp; &nbsp; &nbsp; &nbsp;
+        </macro>
+    </macrolist>
+    <style>
+                  * {
+                  <#if .locale == "zh_CN">
+                        font-family: NotoSans, NotoSansCJKsc, sans-serif;
+                  <#elseif .locale == "zh_TW">
+                        font-family: NotoSans, NotoSansCJKtc, sans-serif;
+                  <#elseif .locale == "ja_JP">
+                        font-family: NotoSans, NotoSansCJKjp, sans-serif;
+                  <#elseif .locale == "ko_KR">
+                        font-family: NotoSans, NotoSansCJKkr, sans-serif;
+                  <#elseif .locale == "th_TH">
+                        font-family: NotoSans, NotoSansThai, sans-serif;
+                  <#else>
+                        font-family: NotoSans, sans-serif;
+                  </#if>
+                  }
+                  table {
+                        table-layout: fixed;
+                  }
+                  th {
+                        font-weight: bold;
+                        vertical-align: middle;
+                        padding: 5px 6px 3px;
+                        background-color: #e3e3e3;
+                        color: #333333;
+                  }
+                  td {
+                        padding: 4px 6px;
+                  }
+                  td p {
+                        align:left;
+                      }
+                  b {
+                        color: #333333;
+                  }
+                  table.header td {
+                        padding: 0;
+                  }
+                  table.itemtable th {
+                        padding-bottom: 10px;
+                        padding-top: 10px;
+                  }
+                  table.body td {
+                        padding-top: 2px;
+                  }
+                  table.total {
+                        page-break-inside: avoid;
+                  }
+                  span.title {
+                  }
+                  span.tabletitle {
+                  }
+                  span.transactionheader {
+                  }
+                  span.number {
+                  }
+                  hr {
+                        width: 100%;
+                        color: #d3d3d3;
+                        background-color: #d3d3d3;
+                        height: 1px;
+                  }
+            </style>
+</head>
+<body header="nlheader" header-height="10%" padding="0.5in 0.5in 0.5in 0.5in" size="Letter-LANDSCAPE">
+    &nbsp; &nbsp;
+<table style="height: 200px; width: 100%; line-height: 2px;"><tr style="border-collapse: collapse; padding: down;" align="right">
+<td style="width: 33.9794%;">&nbsp;</td>
+<td style="width: 34.4686%;">&nbsp;</td>
+<td style="width: 31.5274%;font-family: arial, helvetica, sans-serif;">AMMT DUBAI OFFICE:
+<p style="line-height: 14vh;">Umm Hurair Road ,Al Moosa Group<br />Bldg, M01 PO. Box 25681,<br />Dubai, UAE</p>
+<p>Tel: +971 4 334 5455</p>
+<p>Fax: +971 4 334 5457</p>
+<p>Email: info@amt.ae</p>
+<p>TRN: 100001054400003</p>
+</td>
+</tr></table>
+<table style="width: 100%;"><tr>
+<td style="width: 100%; font-size: 35px;" align="center"><span style="font-family: arial, helvetica, sans-serif; font-size: 24pt;"><strong>Purchase Order</strong></span></td>
+</tr></table>
+<table class="itemtable" style="width: 100%; margin-top: 2px; border: 0.5px solid black;"><tr>
+<td style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 17px; text-align: left; vertical-align: bottom;"><span class="transactionheader">Supplier:</span></td>
+<td style="width: 20%;font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.entityid}</span></td>
+<td style="width: 20%;font-family: arial, helvetica, sans-serif; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">PO No:</span></td>
+<td style="width: 20%; font-family: arial, helvetica, sans-serif;text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.tranid}</span></td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Ref. No: </span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3"><span class="transactionheader">${record.entity}</span></td>
+<td style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">PO Date:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">${record.trandate}</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Payment Terms: </span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+<td style="width: 20%; padding-left: 20px; text-align: left; vertical-align: bottom;"><span class="transactionheader">Currency:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Incoterm:&nbsp;</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Location:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Mode Of Shipment:&nbsp;</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">${record.custbody_contactphonenumber}</td>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Dispatch Date:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Supplier TRN No:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Dispatch Date:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Address:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Bill to Address:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 15px;"><span class="transactionheader">Supplier Tel No:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+<td style="width: 20%; text-align: left; vertical-align: bottom; padding-left: 20px;"><span class="transactionheader">Supplier Email ID:</span></td>
+<td style="width: 20%; text-align: left; vertical-align: bottom;" colspan="3">&nbsp;</td>
+</tr></table>
+<table style="border-collapse: collapse; width: 100%; padding-top: 25px;">
+<thead style="background-color: #f2f2f2;">
+<tr style="height: 30px;">
+<th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;" align="center">SNO</th>
+<th style="border: 1px solid gray; width: 25%; padding: 8px; text-align: center;" align="center">Item Code</th>
+<th style="border: 1px solid gray; width: 20%; padding: 8px; text-align: center;" align="center">QTY</th>
+<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">UOM</th>
+<th style="border: 1px solid gray; width: 7%; padding: 8px; text-align: center;" align="center">Rate<br />(5%)</th>
+<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">Gross<br />Amount</th>
+<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">VAT%</th>
+<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">VAT</th>
+<th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">Total Price</th>
+</tr>
+</thead>
+<#list record.item as item><tr style="height: 30px;">
+<td style="border: 1px solid gray; text-align: center;">${item_index + 1}</td>
+<td style="border: 1px solid gray; text-align: left;">${item.Description}</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+<td style="border: 1px solid gray; text-align: right;">${item.Amount}</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+<td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
+</tr>
+</#list></table>
+<table style="width: 100%;"><tr style="width: 50%;">
+<td style="width: 60.1782%;">
+<table><tr>
+<td style="text-align: right;" colspan="5">Total amount in AED:</td>
+<td style="text-align: right;">${record.total}</td>
+</tr>
+<tr>
+<td style="text-align: right;" colspan="5">Shipping Instructions:</td>
+<td style="text-align: right;">${record}</td>
+</tr>
+<tr>
+<td style="padding-top: 8px; text-align: right;" colspan="5">Spl Inst/ Terms:</td>
+<td style="padding-top: 8px; text-align: right;">${record.total}</td>
+</tr></table>
+</td>
+<td style="width: 39.8029%;">
+<table style="width: 91.2032%;"><tr>
+<td style="width: 100%;">Total Amount: ${record.total}</td>
+</tr>
+<tr>
+<td style="width: 100%;">Discount: ${record.discount}</td>
+</tr>
+<tr>
+<td style="width: 100%;">VAT applicable(as per UAE law): ${record.vat}</td>
+</tr>
+<tr>
+<td style="background-color: rgb(242, 242, 242); width: 100%;">Final Total Amount AED:</td>
+</tr></table>
+</td>
+</tr></table>
+<table style="width: 100%; margin-top: 20px; margin-bottom: 20px; position: relative;"><tr>
+<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Prepared By</td>
+<td style="width: 5%;">&nbsp;</td>
+<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Checked and Costing Approved By</td>
+<td style="width: 5%;">&nbsp;</td>
+<td style="border-top: 1px solid black; width: 30%; margin-top: 60px;" align="center">Approved By</td>
+</tr></table>
+<table style="width: 100%;"><tr>
+<td style="margin-top: 25px;"><strong>Warranty:</strong>
+<p>1) Forwarder Name &amp; Address: TO BE ADVISED -PROVIDE THE PACKING WEIGHT &amp; DIMENSIONS.</p>
+<p>2) Latest Date of Shipment: 1 week (Subject to penalty in case of delay).</p>
+<p>3) FOR ELECTRICAL EQUIPMENT THE RATED VOLTAGE should be as follows as per UAE standard: 240V (+/ 5%) 228-252Volts Single Phase OR 415 (+/- 5%) 395-435Volts Three Phase, 50Hz. Three core cable and the casing must be earthed. Three pin electrical UK plug.</p>
+<p>4) Consumable Items: Acceptable Shelf life must be 85% minimum at the time of dispatch.</p>
+</td>
+</tr>
+<tr>
+<td><strong>DOCUMENTS REQUIRED FOR CUSTOMS CLEARANCE:</strong>
+<p>1) ORIGINAL COMMERCIAL INVOICE - SIGNED &amp; STAMPED</p>
+<p>2) PACKING LIST -SIGNED &amp; STAMPED packing details (no. of packages, quantity, weight, dimensions) must match with the Bill of lading or Air Waybill</p>
+<p>3) CERTIFICATE OF ORIGIN - attested by Chamber of Commerce</p>
+<p>4) Airway Bill / Bill of Lading&nbsp;BOTH INVOICE AND PACKING LIST MUST HAVE SIGNATURE (BLUE INK) AND COMPANY STAMP/SEAL.</p>
+</td>
+</tr>
+<tr>
+<td>Upon dispatch of shipment, provide us a copy of the above documents; Original documents must be sent to us before the goods arrival; otherwise as instructed.</td>
+</tr>
+<tr>
+<td>Should the above-mentioned points not have followed, you are liable for the deposit and demurrage charges due to incomplete and/ or incorrect documents causing delay in customs clearance</td>
+</tr></table>
+<#if (record.item?is_collection && record.item?has_content) || (record.expense?is_collection && record.expense?has_content)> <#if (record.item?is_collection && record.item?has_content) && (record.expense?is_collection && record.expense?has_content)> <br /></#if> </#if>
+</body>
+</pdf>

@@ -91,21 +91,12 @@
 </head>
 <body header="nlheader" header-height="10%" padding="0.5in 0.5in 0.5in 0.5in" size="Letter-LANDSCAPE">
     &nbsp; &nbsp;
-<table style="height: 200px; width: 100%; line-height: 2px;"><tr style="border-collapse: collapse; padding: down;" align="right">
-<td style="width: 35%;">AMMT DUBAI OFFICE:
-<p style="line-height: 14vh;">Umm Hurair Road ,Al Moosa Group<br />Bldg, M01 PO. Box 25681,<br />Dubai, UAE</p>
-<p>Tel: +971 4 334 5455</p>
-<p>Fax: +971 4 334 5457</p>
-<p>Email: info@amt.ae</p>
-<p>TRN: 100001054400003</p>
-</td>
-<td style="width: 30%;">&nbsp;</td>
-<td style="width: 35%;">AMMT DUBAI OFFICE:
-<p style="line-height: 14vh;">Umm Hurair Road ,Al Moosa Group<br />Bldg, M01 PO. Box 25681,<br />Dubai, UAE</p>
-<p>Tel: +971 4 334 5455</p>
-<p>Fax: +971 4 334 5457</p>
-<p>Email: info@amt.ae</p>
-<p>TRN: 100001054400003</p>
+<table style="height: 200px; width: 100%;"><tr style="border-collapse: collapse; padding: down;" align="right">
+<td style="width: 64.5286%;">&nbsp;</td>
+<td style="width: 35.4633%;">${subsidiary.mainaddress_text}
+<p>Fax: ${subsidiary.fax}</p>
+<p>Email: ${subsidiary.email}</p>
+<p>TRN No.:${record.tranid} </p>
 </td>
 </tr></table>
 <table style="width: 100%;"><tr>
@@ -125,33 +116,28 @@
 <th style="border: 1px solid gray; width: 15%; padding: 8px; text-align: center;" align="center">Total Price</th>
 </tr>
 </thead>
-<#list record.item as item>
-<tr style="height: 30px;">
+<#list record.item as item><tr style="height: 30px;">
 <td style="border: 1px solid gray; text-align: center;">${item_index + 1}</td>
-<td style="border: 1px solid gray; text-align: left;">${item.item.internalid}</td>
+<td style="border: 1px solid gray; text-align: left;">${item.item}</td>
 <td style="border: 1px solid gray; text-align: center;">${item.displayname}</td>
 <td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
-<td style="border: 1px solid gray; text-align: center;">${item.custcol_cts_uom}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.units}</td>
 <td style="border: 1px solid gray; text-align: right;">${item.quantity}</td>
-<td style="border: 1px solid gray; text-align: center;">${item.amount}</td>
-<td style="border: 1px solid gray; text-align: center;">${item.rate}</td>
-<td style="border: 1px solid gray; text-align: center;">${item.grossamt}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.amount?string.number}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.rate?string.number}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.grossamt?string.number}</td>
 </tr>
-</#list>
-</table>
-
-<table style="width: 100%;">
-<tr>
+</#list></table>
+<table style="width: 100%;"><tr>
 <td style="width: 67.6674%;">
-<table>
-<tr>
+<table><tr>
 <td>Created By: ${record.createdby}</td>
 </tr>
 <tr>
-<td>Discount: ${record.discounttotal}</td>
+<td>Discount: ${record.discounttotal?string.number}</td>
 </tr>
 <tr>
-<td style="margin-top:35px">Manufacture: ${record.custbody_cts_manufacture}</td>
+<td style="margin-top: 35px;">Manufacture: ${record.custbody_cts_manufacture}</td>
 </tr>
 <tr>
 <td>Delivery: ${record.custbody_cts_delivery}</td>
@@ -161,29 +147,23 @@
 </tr>
 <tr>
 <td>Warranty: ${record.custbody_cts_warranty}</td>
-</tr>
-</table>
+</tr></table>
 </td>
-
 <td style="width: 32.3136%;">
-<table>
-<tr>
-<td>Total Amount: ${record.total}</td>
+<table><tr>
+<td>Total Amount: ${record.subtotal?string.number}</td>
 </tr>
 <tr>
-<td>Discount: ${record.discounttotal}</td>
+<td>Discount: ${record.discounttotal?string.number}</td>
 </tr>
 <tr>
 <td>VAT applicable (as per UAE law): ${record.taxamount}</td>
 </tr>
 <tr>
-<td style="background-color: #f2f2f2;">Final Total Amount AED: ${record.custbody_cts_final_total_amount}</td>
-</tr>
-</table>
+<td style="background-color: #f2f2f2;">Final Total Amount AED: ${record.total?string.number}</td>
+</tr></table>
 </td>
-</tr>
-</table>
-
+</tr></table>
 <#if (record.item?is_collection && record.item?has_content) || (record.expense?is_collection && record.expense?has_content)> <#if (record.item?is_collection && record.item?has_content) && (record.expense?is_collection && record.expense?has_content)> <br /></#if> </#if>
 </body>
 </pdf>

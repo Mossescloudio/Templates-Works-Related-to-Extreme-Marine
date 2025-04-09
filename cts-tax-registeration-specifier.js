@@ -4,80 +4,84 @@
  * @NModuleScope SameAccount
  *
  * @description
- * This script updates a custom transaction field 'custbody_cts_tax_reg'.
- based on the vendor's tax registration.
-
- * The script retrieves the 'Bill Country' from the PO and then searches
- the vendor's 'Tax Registrations' sublist for a matching country. If found,
- it copies the corresponding tax registration number
- to the 'custbody_cts_tax_reg' field on the PO.
-
+ * This script updates a custom transaction field with the entity's tax registration.
+ *
  * @author Mosses Ross
- * @version 1.0
+ * @version 1.2
  * @date Mar 11 2025
+ * @changelog Apr 8, 9 - Reviewed, removed unnecessary log messages, and minor optimizations
+ *                  - Modified to support Sales Orders, Purchase Orders, and Quotes. Fixed Bugs.
  */
 
-var record, log;
 const modules = ['N/record', 'N/log']
 define(modules, function (record, log) {
     function beforeSubmit(context) {
         if (context.type !== context.UserEventType.CREATE && context.type !== context.UserEventType.EDIT) {
-            log.debug({
-                title: "Script Execution Skipped",
-                details: "Script execution skipped because the User Event type is not CREATE or EDIT. Current type: " + context.type
-            });
+            log.error("Execution Skipped", "Script execution skipped for event type: " + context.type);
             return;
         }
 
         try {
-            var purchaseOrder = context.newRecord;
-            var billCountry = purchaseOrder.getValue({ fieldId: 'custbody_cts_bill_country' });
-            var vendorId = purchaseOrder.getValue({ fieldId: 'entity' });
+            var transactionType = context.newRecord.type;
+            var entityType;
+            var taxRegFieldName;
+
+            if (transactionType === record.Type.SALES_ORDER) {
+                entityType = record.Type.CUSTOMER;
+                taxRegFieldName = 'custbody_cts_entity_tax_reg_no';
+            } else if (transactionType === record.Type.PURCHASE_ORDER) {
+                entityType = record.Type.VENDOR;
+                taxRegFieldName = 'custbody_cts_vendor_tax_reg';
+            } else {
+                log.error("Unsupported Transaction Type", "Script execution skipped for transaction type: " + transactionType);
+                return;
+            }
+
+            var transactionRecord = context.newRecord;
+            var billCountry = transactionRecord.getValue({ fieldId: 'custbody_cts_bill_country' });
+            var entityId = transactionRecord.getValue({ fieldId: 'entity' });
 
             if (!billCountry) {
-                var subsidiaryId = purchaseOrder.getValue({ fieldId: 'subsidiary' }); // Assuming 'subsidiary' is the field ID on PO
+                if (transactionType === record.Type.SALES_ORDER) {
+                    billCountry = transactionRecord.getValue({ fieldId: 'billcountry' });
+                }
+                var subsidiaryId = transactionRecord.getValue({ fieldId: 'subsidiary' });
                 if (subsidiaryId) {
                     var subsidiaryRecord = record.load({
                         type: record.Type.SUBSIDIARY,
                         id: subsidiaryId
                     });
                     countryCode = subsidiaryRecord.getValue({ fieldId: 'country' });
-                    log.debug({
-                        title: 'Subsidiary Country Found',
-                        details: 'Subsidiary Country: ' + countryCode
-                    });
-                    purchaseOrder.setValue({
-                        fieldId: "custbody_cts_bill_country",
-                        value: countryCode
-                    })
                     billCountry = countryCode;
+                    transactionRecord.setValue({
+                        fieldId: 'custbody_cts_bill_country',
+                        value: billCountry
+                    });  
                 } else {
-                    log.debug({
+                    log.error({
                         title: 'Subsidiary Missing',
                         details: 'No Subsidiary found on Purchase Order, cannot determine Subsidiary Country.'
                     });
                 }
             }
 
-            var vendorRecord = record.load({
-                type: record.Type.VENDOR,
-                id: vendorId
+            var entityRecord = record.load({
+                type: entityType,
+                id: entityId
             });
 
-            var lineCount = vendorRecord.getLineCount({ sublistId: 'taxregistration' });
+            var lineCount = entityRecord.getLineCount({ sublistId: 'taxregistration' });
             var taxRegValue = null;
 
-
             for (var i = 0; i < lineCount; i++) {
-                var taxRegCountry = vendorRecord.getSublistValue({
+                var taxRegCountry = entityRecord.getSublistValue({
                     sublistId: 'taxregistration',
                     fieldId: 'nexuscountry',
                     line: i
                 });
 
-
                 if (taxRegCountry === billCountry) {
-                    taxRegValue = vendorRecord.getSublistValue({
+                    taxRegValue = entityRecord.getSublistValue({
                         sublistId: 'taxregistration',
                         fieldId: 'taxregistrationnumber',
                         line: i
@@ -87,26 +91,14 @@ define(modules, function (record, log) {
             }
 
             if (taxRegValue) {
-                purchaseOrder.setValue({
-                    fieldId: 'custbody_cts_vendor_tax_reg',
+                transactionRecord.setValue({
+                    fieldId: taxRegFieldName,
                     value: taxRegValue
                 });
             }
-            log.debug({
-                title: "End of Script Execution",
-                details: "Variables at script end: " + JSON.stringify({
-                    billCountry: billCountry,
-                    vendorId: vendorId,
-                    lineCount: lineCount,
-                    taxRegValue: taxRegValue,
-                    taxRegCountry: taxRegCountry
-                })
-            });
-
-
         } catch (e) {
             log.error({
-                title: 'Error updating PO tax reg',
+                title: 'Error updating Tax Reg',
                 details: e
             });
         }

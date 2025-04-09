@@ -119,7 +119,7 @@
 <#list record.item as item><tr style="height: 30px;">
 <td style="border: 1px solid gray; text-align: center;">${item_index + 1}</td>
 <td style="border: 1px solid gray; text-align: left;">${item.item}</td>
-<td style="border: 1px solid gray; text-align: center;">${item.displayname}</td>
+<td style="border: 1px solid gray; text-align: center;">${item.description}</td>
 <td style="border: 1px solid gray; text-align: center;">&nbsp;</td>
 <td style="border: 1px solid gray; text-align: center;">${item.units}</td>
 <td style="border: 1px solid gray; text-align: right;">${item.quantity}</td>

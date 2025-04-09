@@ -91,14 +91,15 @@
 </head>
 <body header="nlheader" header-height="10%" padding="0.5in 0.5in 0.5in 0.5in" size="Letter-LANDSCAPE">
     &nbsp; &nbsp;
-<table style="height: 200px; width: 100%; line-height: 2px;"><tr style="border-collapse: collapse; padding: down;" align="right">
-<td style="width: 61.1341%;">&nbsp;</td>
-<td style="width: 38.8579%;"><strong>AMMT DUBAI OFFICE:</strong>
-<p style="line-height: 14vh;">Umm Hurair Road ,Al Moosa Group<br />Bldg, M01 PO. Box 25681,<br />Dubai, UAE</p>
-<p>Tel: +971 4 334 5455</p>
-<p>Fax: +971 4 334 5457</p>
-<p>Email: info@amt.ae</p>
-<p>TRN: 100001054400003</p>
+<table style="height: 200px; width: 100%;"><tr style="border-collapse: collapse; padding: down;" align="right">
+<td style="width: 33.9794%;">&nbsp;</td>
+<td style="width: 34.4686%;">&nbsp;</td>
+<td style="width: 31.5274%;">
+<p>${subsidiary.mainaddress_text}</p>
+<p>Tel: ${subsidiary.phone}</p>
+<p>Fax: ${subsidiary.fax}</p>
+<p>Email: ${subsidiary.email}</p>
+<p>TRN: ${subsidiary.taxregistrationnumber}</p>
 </td>
 </tr></table>
 <table style="width: 100%;"><tr>
@@ -136,7 +137,7 @@
 </tr>
 <tr>
 <td style="width: 20%; text-align: left; vertical-align: top; padding-left: 15px;"><span class="transactionheader">Customer TRN No:</span></td>
-<td style="width: 20%; text-align: left; vertical-align: top;" colspan="3">${record.taxid}</td>
+<td style="width: 20%; text-align: left; vertical-align: top;" colspan="3">${record.custbody_cts_entity_tax_reg_no}</td>
 <td style="width: 20%; text-align: left; vertical-align: top; padding-left: 20px;"><span class="transactionheader">Reference No:</span></td>
 <td style="width: 20%; text-align: left; vertical-align: top;" colspan="3">${record.otherrefnum}</td>
 </tr>

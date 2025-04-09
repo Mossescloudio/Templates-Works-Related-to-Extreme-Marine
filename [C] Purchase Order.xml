@@ -96,10 +96,10 @@
 <td style="width: 34.4686%;">&nbsp;</td>
 <td style="width: 31.5274%;">
 <p>${subsidiary.mainaddress_text}</p>
-<p>Tel: {subsidiary.phone}</p>
+<p>Tel: ${subsidiary.phone}</p>
 <p>Fax: ${subsidiary.fax}</p>
 <p>Email: ${subsidiary.email}</p>
-<p>TRN: ${subsidiary.trnno}</p>
+<p>TRN: ${subsidiary.taxregistrationnumber}</p>
 </td>
 </tr></table>
 <table style="width: 100%;"><tr>
@@ -137,7 +137,7 @@
 </tr>
 <tr>
 <td style="width: 20.8514%; font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: top; padding-left: 15px;"><span class="transactionheader">Supplier TRN No:</span></td>
-<td style="width: 32.6678%; font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: top;" colspan="3"><span class="transactionheader">${record.custbody_cts_vendor_tax_reg}</span></td>
+<td style="width: 32.6678%; font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: top;" colspan="3"><span class="transactionheader">${record.custbody_cts_entity_tax_reg_no}</span></td>
 <td style="width: 20.4723%; font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: top; padding-left: 20px;"><span class="transactionheader">Ship to Address:</span></td>
 <td style="width: 26.0642%; font-family: arial, helvetica, sans-serif; text-align: left; vertical-align: top; white-space: nowrap;"><span class="transactionheader">${subsidiary.shippingaddress_text}</span></td>
 </tr>
